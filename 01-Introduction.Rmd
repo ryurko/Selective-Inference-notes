@@ -1,0 +1,64 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# Introduction
+
+## What is Multiple Testing
+
+In various scientific applications we wish to test several hypotheses of interest
+simultaneously or sequentially^[We'll come back to sequential testing later].
+The popular example is Genome Wide Association Studies which focus on (amongst 
+other things) the association of several genes with a known disease type.
+
+## Relationships between $\text{FDR}$ and $\text{FWER}$
+
+We note the following 2 key theorems which link $\text{FDR}$ and $\text{FWER}$.
+
+```{theorem, name="FDR = FWER under Global Null"}
+Under the Global Null we have that FDR control is equivalent to FWER control
+```
+
+```{proof}
+Under the global null ^[i.e. all null hypotheses are assumed to be true] we have
+that all rejections are false rejections i.e. $V = R$. We first consider two 
+cases namely that there are no false rejections $V = 0$ and 
+secondly if there are any false rejections at all i.e. $V \ge 1$.
+
+When $V = 0$ then we have that $\text{FDP} = 0$ else if $V \ge 1$ we have 
+that $\text{FDP} = 1$.
+
+So we have that:
+    
+$$\begin{align}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) &= (0) \times 
+                            \mathbb{P}(V = 0) + (1) \times \mathbb{P}(V \ge 1) \\
+&= \mathbb{P}(V \ge 1) \\
+&= \text{FWER}
+\end{align}$$
+as required.    
+```
+
+This now brings us to the following important theorem^[In other words 
+$\text{FWER}$ control is a more conservative method of controlling False 
+Discovery in multiple testing than $\text{FDR}$ control.]:
+
+```{theorem, name="FWER control always implies FDR control"}
+We always have that $\text{FWER}$ control implies $\text{FDR}$
+control.
+```
+
+```{proof}
+We begin with the simple observation that $FDP = \frac{V}{R} \mathbb{I}(R > 0)$.
+So we always have $FDP \le 1$ and more specifically we have that $FDP \le \mathbb{I}(V > 0)$.
+Since if $V = 0 \implies FDP = 0 \le 1$ and $V \ge 1 \implies FDP = \frac{V}{R} \le 1$.
+
+Taking expectations we have that:
+    
+$$\begin{align*}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) &\le 
+                             \mathbb{E}\left(\mathbb{I}(V > 0) \right) \\
+                            &= \mathbb{P}(V \ge 1) \\                                                            
+                            &= \text{FWER}
+\end{align*}$$
+as required.    
+```
