@@ -12,6 +12,89 @@ simultaneously or sequentially^[We'll come back to sequential testing later].
 The popular example is Genome Wide Association Studies which focus on (amongst 
 other things) the association of several genes with a known disease type.
 
+This leads to the reproducibility crisis in science. Too many 
+false discoveries published in papers due to not adjusting Type I 
+error control for multiple tests.
+
+```{remark}
+Is this is the only reason for the reproducibility crisis? Or is there
+more to it i.e. not releasing data and code publicly for 
+research publications? Check with Ron.
+```
+
+## $\text{FWER}$ Control methods
+
+### Bonferroni Correction - $\text{FWER}$ under dependence
+
+Suppose we have that the tests i.e. the p-values are dependent. We can then
+use the Bonferroni correction for each p-value
+
+```{theorem, name="Bonferroni Correction"}
+For $d$ tests, reject any test if the p-value is smaller than $\frac{\alpha}{d}$.
+```
+
+```{proof}
+$$\begin{align*}
+\text{FWER} &= \mathbb{P}\left(\cup_{i = 1}^{d} \text{Falsely reject } H_{0, i} \right) \\
+&\le \sum_{i = 1}^{d} \mathbb{P}\left(\text{Falsely reject } H_{0, i}\right) \\
+&\le \sum_{i = 1}^{d} \frac{\alpha}{d} \\
+&= d \left(\frac{\alpha}{d} \right) \\
+&= \alpha
+\end{align*}$$
+as required.
+```
+
+
+```{remark}
+This works under any form of dependence of the tests i.e. p-values since
+the proof uses Union Bound. This may be quite crude a threshold as a result.
+```
+
+### Sidak Correction - $\text{FWER}$ under independence
+
+Suppose we have that the tests i.e. the p-values are now __independent__. We we can then use the Sidak correction to set the p-value threshold to control
+the $\text{FWER}$ at level $\alpha$.
+
+```{theorem, name="Sidak Correction"}
+For $d$ tests, reject any test if the p-value is smaller than $\frac{\alpha}{d}$.
+```
+
+```{proof}
+$$\begin{align*}
+\text{FWER} &= \mathbb{P}\left(\cup_{i = 1}^{d} \text{Falsely reject } H_{0, i} \right) \\
+&= 1 - \mathbb{P}\left(\cap_{i = 1}^{d} \{\text{Falsely reject } H_{0, i}\}^{c} \right) \\
+&= 1 - \prod_{i=1}^{d}{\mathbb{P}\left(\{\text{Falsely reject } H_{0, i}\}^{c} \right)} \\
+&= 1 - \prod_{i=1}^{d}(1 - \mathbb{P}\left(\text{Falsely reject } H_{0, i} \right)) \\
+&= 1 - \prod_{i=1}^{d}(1 - (1 - (1 - \alpha)^{\frac{1}{d}})) \\
+&= 1 - \prod_{i=1}^{d}(1 - \alpha)^{\frac{1}{d}} \\
+&= 1 - (1 - \alpha) \\
+&= \alpha
+\end{align*}$$
+as required.
+```
+
+
+```{remark}
+This procedure specifically requires independence of the tests i.e. p-values since. The gain from the indepedence strucuture here results in a more powerful test than Bonferroni (prove this!).
+```
+
+### Holm's Procedure - Improving on Bonferroni
+
+## Correcting for Multiple Testing
+
+There are several ways to correct for false discovery in the case of
+multiple testing procedures. Once again in the spirit of the Neyman Pearson
+framework we want to ensure that we first control for the Type I error i.e.
+the probability of False Discovery. Specifically in single hypothesis testing
+we want to ensure that 
+
+One way is to control the Familywise Error Rate i.e. $\text{FWER}$. This is the probability of making atleast one false
+discovery (i.e. rejecting the null when the null is true) amongst all tested
+hypotheses. This is a quite conservative approach to FD control.
+
+
+
+
 ## Relationships between $\text{FDR}$ and $\text{FWER}$
 
 We note the following 2 key theorems which link $\text{FDR}$ and $\text{FWER}$.
@@ -31,8 +114,9 @@ that $\text{FDP} = 1$.
 
 So we have that:
     
-$$\begin{align}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) &= (0) \times 
-                            \mathbb{P}(V = 0) + (1) \times \mathbb{P}(V \ge 1) \\
+$$\begin{align}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) 
+                          &= (0) \times \mathbb{P}(V = 0) + 
+                             (1) \times \mathbb{P}(V \ge 1) \\
 &= \mathbb{P}(V \ge 1) \\
 &= \text{FWER}
 \end{align}$$

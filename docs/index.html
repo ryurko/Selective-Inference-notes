@@ -1,84 +1,206 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="A Minimal Bookdown Book" />
-<meta property="og:type" content="book" />
-<meta property="og:url" content="http://seankross.com/bookdown-start/" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Selective Inference and Multiple Testing - Survey</title>
+  <meta name="description" content="Selective Inference and Multiple Testing - Survey">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-<meta property="og:description" content="Everything you need (and nothing more) to start a bookdown book." />
-<meta name="github-repo" content="seankross/bookdown-start" />
+  <meta property="og:title" content="Selective Inference and Multiple Testing - Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
 
-<meta name="author" content="Ron Yurko, Shamindra Shrotriya" />
-
-<meta name="date" content="2019-02-13" />
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
-
-<meta name="description" content="Everything you need (and nothing more) to start a bookdown book.">
-
-<title>A Minimal Bookdown Book</title>
-
-<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
-\usepackage{booktabs}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Selective Inference and Multiple Testing - Survey" />
+  
+  
+  
 
 
 
+<meta name="date" content="2019-02-16">
 
-<link rel="stylesheet" href="toc.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
 
+<link rel="next" href="introduction.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
 
 
 
-<div class="row">
-<div class="col-sm-12">
-<div id="TOC">
-<ul>
-<li><a href="index.html#preface">Preface</a></li>
-<li class="has-sub"><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
-<li><a href="1-1-relationships-between-textfdr-and-textfwer.html#relationships-between-textfdr-and-textfwer"><span class="toc-section-number">1.1</span> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Bookdown Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
-<li><a href="2-diving-in.html#diving-in"><span class="toc-section-number">2</span> Diving In</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-multiple-testing"><i class="fa fa-check"></i><b>1.1</b> What is Multiple Testing</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#textfwer-control-methods"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\text{FWER}\)</span> Control methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#bonferroni-correction---textfwer-under-dependence"><i class="fa fa-check"></i><b>1.2.1</b> Bonferroni Correction - <span class="math inline">\(\text{FWER}\)</span> under dependence</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#sidak-correction---textfwer-under-independence"><i class="fa fa-check"></i><b>1.2.2</b> Sidak Correction - <span class="math inline">\(\text{FWER}\)</span> under independence</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#holms-procedure---improving-on-bonferroni"><i class="fa fa-check"></i><b>1.2.3</b> Holm’s Procedure - Improving on Bonferroni</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#correcting-for-multiple-testing"><i class="fa fa-check"></i><b>1.3</b> Correcting for Multiple Testing</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#relationships-between-textfdr-and-textfwer"><i class="fa fa-check"></i><b>1.4</b> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Selective Inference and Multiple Testing - Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">A Minimal Bookdown Book</h1>
-<h4 class="author"><em>Ron Yurko, Shamindra Shrotriya</em></h4>
-<h4 class="date"><em>2019-02-13</em></h4>
+<h1 class="title">Selective Inference and Multiple Testing - Survey</h1>
+<p class="author"><em>Ron Yurko</em></p>
+<p class="author"><em>Shamindra Shrotriya</em></p>
+<address class="author_afil">
+Carnegie Mellon University, Department of Statistics and Data Science<br><p class="date"><em>2019-02-16</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>This is the very first part of the book.</p>
+<p>This is a <strong>collection of notes</strong> on the broad topic of <strong>multiple testing</strong> and
+<strong>selective inference</strong> by the authors. Think of it like a fun reading group/ survey exercise on these topics.</p>
+<div id="goals" class="section level2 unnumbered">
+<h2>Goals</h2>
+<p>This book differs from other books covering similar material in that
+it</p>
+<ul>
+<li>A deeper understanding of <strong>hypothesis testing</strong> (under both <strong>Bayesian</strong> and <strong>Frequentist</strong> perspectives)</li>
+<li>Better understanding of <strong>what selective inference is</strong> i.e the <strong>mathematical formulation</strong> and how to <strong>apply it on real data</strong>. Specifically understanding what actual “inference” we are making</li>
+<li>Read more FDR/ multiple testing / selective inference papers and understand <strong>key ideas</strong>, and also <strong>cover proof techniques</strong></li>
+<li>Read such FDR/ multiple testing / selective inference papers and do a <strong>simulations to to reproduce the papers</strong>.</li>
+</ul>
+</div>
+<div id="licensing" class="section level2 unnumbered">
+<h2>Licensing</h2>
+<p>The text of this book is distributed under the <a href="https://creativecommons.org/licenses/by-nd/4.0/"><small>CC BY-ND
+4.0</small></a> license.
+The accompanying code is distributed under the <a href="https://opensource.org/licenses/BSD-3-Clause"><small>BSD
+3</small>-clause</a>
+license.</p>
+</div>
+<div id="acknowledgements" class="section level2 unnumbered">
+<h2>Acknowledgements</h2>
+<p>All the great researchers who made this work possible</p>
 
 </div>
-<p style="text-align: center;">
-<a href="1-introduction.html"><button class="btn btn-default">Next</button></a>
-</p>
 </div>
-</div>
+            </section>
 
+          </div>
+        </div>
+      </div>
 
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
+
 </html>
