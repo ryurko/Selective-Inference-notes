@@ -61,10 +61,41 @@ the $\text{FWER}$ at level $\alpha$.
 \end{align*}$$
 as required.</div>\EndKnitrBlock{proof}
 
-
 \BeginKnitrBlock{remark}<div class="remark">\iffalse{} <span class="remark"><em>Remark. </em></span>  \fi{}This procedure specifically requires independence of the tests i.e. p-values since. The gain from the indepedence strucuture here results in a more powerful test than Bonferroni (prove this!).</div>\EndKnitrBlock{remark}
 
 ### Holm's Procedure - Improving on Bonferroni
+
+We can improve on the Bonferroni test in various ways. If we assume a bit
+more knowledge about our experiment and note that out of $d$ tests that
+$d_0$ are true nulls. Let us denote the indices of all tests as $I$ and the
+indices of the true nulls as $I_0$. Then we have by definition $I_0 \subseteq I$. In this case we can just use the p-value cut-off value of $\frac{\alpha}{d_0}$ and control the $\text{FWER}$ at level $\alpha$.
+
+Equipped with this intuition, Holm's procedure is as follows:
+
+\BeginKnitrBlock{theorem}\iffalse{-91-72-111-108-109-39-115-32-80-114-111-99-101-100-117-114-101-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-8"><strong>(\#thm:unnamed-chunk-8)  \iffalse (Holm's Procedure) \fi{} </strong></span>Suppose we have ordered p-values for the $d$ tests as $p_{(i)}$ for all $i \in d$. Then Holm's controls FWER by rejecting all $H_{(i)}$ for $i < i^{*}$ where:
+$$i^{*} = \min \left\{i : p_{(i)} > \frac{\alpha}{d - i + 1 } \right\}$$</div>\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}Let $I_0$ denote the true nulls from the set of all hypothesis $I$. We then
+have that if:
+    $$\min_{i \in I_0}(p_i) > \frac{\alpha}{d_0}$$
+then we would reject none of the true nulls. This is because the first time
+we would encounter a true null, we would compare it to a threshold that is
+at most $\frac{\alpha}{d_0}$ and if we fail to reject it, then we would not reject any of the true nulls.
+
+So the $\text{FWER}$ is:
+$$\begin{align*}
+\text{FWER} &= \mathbb{P}\left(\min_{i \in I_0}(p_i) \le \frac{\alpha}{d_0} \right) \\
+&= \mathbb{P}\left(\bigcup_{i \in I_0} \mathbb{P}\left\{p_i \le \frac{\alpha}{d_0} \right\} \right) \\
+&\le \sum_{i \in I_0} \mathbb{P}\left(p_i \le \frac{\alpha}{d_0} \right) \\
+&= d_0 \left(\frac{\alpha}{d_0}\right) \\
+&= \alpha
+\end{align*}$$
+as required.</div>\EndKnitrBlock{proof}
+
+\BeginKnitrBlock{remark}<div class="remark">\iffalse{} <span class="remark"><em>Remark. </em></span>  \fi{}Holm's procedure controls $\text{FWER}$ at level $\alpha$ and does not require the independence of p-values (similar to Bonferroni). However
+it strictly dominates Bonferroni in the sense of higher power (CHECK THIS, PROVE IT)!</div>\EndKnitrBlock{remark}
+
+
 
 ## Correcting for Multiple Testing
 
@@ -85,7 +116,7 @@ hypotheses. This is a quite conservative approach to FD control.
 
 We note the following 2 key theorems which link $\text{FDR}$ and $\text{FWER}$.
 
-\BeginKnitrBlock{theorem}\iffalse{-91-70-68-82-32-61-32-70-87-69-82-32-117-110-100-101-114-32-71-108-111-98-97-108-32-78-117-108-108-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-8"><strong>(\#thm:unnamed-chunk-8)  \iffalse (FDR = FWER under Global Null) \fi{} </strong></span>Under the Global Null we have that FDR control is equivalent to FWER control</div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}\iffalse{-91-70-68-82-32-61-32-70-87-69-82-32-117-110-100-101-114-32-71-108-111-98-97-108-32-78-117-108-108-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-11"><strong>(\#thm:unnamed-chunk-11)  \iffalse (FDR = FWER under Global Null) \fi{} </strong></span>Under the Global Null we have that FDR control is equivalent to FWER control</div>\EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}Under the global null ^[i.e. all null hypotheses are assumed to be true] we have
 that all rejections are false rejections i.e. $V = R$. We first consider two 
@@ -109,7 +140,7 @@ This now brings us to the following important theorem^[In other words
 $\text{FWER}$ control is a more conservative method of controlling False 
 Discovery in multiple testing than $\text{FDR}$ control.]:
 
-\BeginKnitrBlock{theorem}\iffalse{-91-70-87-69-82-32-99-111-110-116-114-111-108-32-97-108-119-97-121-115-32-105-109-112-108-105-101-115-32-70-68-82-32-99-111-110-116-114-111-108-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-10"><strong>(\#thm:unnamed-chunk-10)  \iffalse (FWER control always implies FDR control) \fi{} </strong></span>We always have that $\text{FWER}$ control implies $\text{FDR}$
+\BeginKnitrBlock{theorem}\iffalse{-91-70-87-69-82-32-99-111-110-116-114-111-108-32-97-108-119-97-121-115-32-105-109-112-108-105-101-115-32-70-68-82-32-99-111-110-116-114-111-108-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:unnamed-chunk-13"><strong>(\#thm:unnamed-chunk-13)  \iffalse (FWER control always implies FDR control) \fi{} </strong></span>We always have that $\text{FWER}$ control implies $\text{FDR}$
 control.</div>\EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}We begin with the simple observation that $FDP = \frac{V}{R} \mathbb{I}(R > 0)$.
