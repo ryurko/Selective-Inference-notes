@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 1 Introduction | Selective Inference and Multiple Testing - Survey</title>
+  <meta name="description" content="Chapter 1 Introduction | Selective Inference and Multiple Testing - Survey">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 1 Introduction | Selective Inference and Multiple Testing - Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | Selective Inference and Multiple Testing - Survey" />
+  
+  
+  
+
+
+
+<meta name="date" content="2019-02-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Bookdown Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-multiple-testing"><i class="fa fa-check"></i><b>1.1</b> What is Multiple Testing</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#textfwer-control-methods"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\text{FWER}\)</span> Control methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#bonferroni-correction---textfwer-under-dependence"><i class="fa fa-check"></i><b>1.2.1</b> Bonferroni Correction - <span class="math inline">\(\text{FWER}\)</span> under dependence</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#sidak-correction---textfwer-under-independence"><i class="fa fa-check"></i><b>1.2.2</b> Sidak Correction - <span class="math inline">\(\text{FWER}\)</span> under independence</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#holms-procedure---improving-on-bonferroni"><i class="fa fa-check"></i><b>1.2.3</b> Holm’s Procedure - Improving on Bonferroni</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#correcting-for-multiple-testing"><i class="fa fa-check"></i><b>1.3</b> Correcting for Multiple Testing</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#relationships-between-textfdr-and-textfwer"><i class="fa fa-check"></i><b>1.4</b> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Selective Inference and Multiple Testing - Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<div id="what-is-multiple-testing" class="section level2">
+<h2><span class="header-section-number">1.1</span> What is Multiple Testing</h2>
+<p>In various scientific applications we wish to test several hypotheses of interest
+simultaneously or sequentially<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
+The popular example is Genome Wide Association Studies which focus on (amongst
+other things) the association of several genes with a known disease type.</p>
+<p>This leads to the reproducibility crisis in science. Too many
+false discoveries published in papers due to not adjusting Type I
+error control for multiple tests.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Is this is the only reason for the reproducibility crisis? Or is there
+more to it i.e. not releasing data and code publicly for
+research publications? Check with Ron.
+</div>
+
+</div>
+<div id="textfwer-control-methods" class="section level2">
+<h2><span class="header-section-number">1.2</span> <span class="math inline">\(\text{FWER}\)</span> Control methods</h2>
+<div id="bonferroni-correction---textfwer-under-dependence" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Bonferroni Correction - <span class="math inline">\(\text{FWER}\)</span> under dependence</h3>
+<p>Suppose we have that the tests i.e. the p-values are dependent. We can then
+use the Bonferroni correction for each p-value</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-2" class="theorem"><strong>Theorem 1.1  (Bonferroni Correction)  </strong></span>For <span class="math inline">\(d\)</span> tests, reject any test if the p-value is smaller than <span class="math inline">\(\frac{\alpha}{d}\)</span>.
+</div>
+
+
+<div class="proof">
+ <span class="proof"><em>Proof. </em></span> <span class="math display">\[\begin{align*}
+\text{FWER} &amp;= \mathbb{P}\left(\cup_{i = 1}^{d} \text{Falsely reject } H_{0, i} \right) \\
+&amp;\le \sum_{i = 1}^{d} \mathbb{P}\left(\text{Falsely reject } H_{0, i}\right) \\
+&amp;\le \sum_{i = 1}^{d} \frac{\alpha}{d} \\
+&amp;= d \left(\frac{\alpha}{d} \right) \\
+&amp;= \alpha
+\end{align*}\]</span>
+as required.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> This works under any form of dependence of the tests i.e. p-values since
+the proof uses Union Bound. This may be quite crude a threshold as a result.
+</div>
+
+</div>
+<div id="sidak-correction---textfwer-under-independence" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Sidak Correction - <span class="math inline">\(\text{FWER}\)</span> under independence</h3>
+<p>Suppose we have that the tests i.e. the p-values are now <strong>independent</strong>. We we can then use the Sidak correction to set the p-value threshold to control
+the <span class="math inline">\(\text{FWER}\)</span> at level <span class="math inline">\(\alpha\)</span>.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-5" class="theorem"><strong>Theorem 1.2  (Sidak Correction)  </strong></span>For <span class="math inline">\(d\)</span> tests, reject any test if the p-value is smaller than <span class="math inline">\(\frac{\alpha}{d}\)</span>.
+</div>
+
+
+<div class="proof">
+ <span class="proof"><em>Proof. </em></span> <span class="math display">\[\begin{align*}
+\text{FWER} &amp;= \mathbb{P}\left(\cup_{i = 1}^{d} \text{Falsely reject } H_{0, i} \right) \\
+&amp;= 1 - \mathbb{P}\left(\cap_{i = 1}^{d} \{\text{Falsely reject } H_{0, i}\}^{c} \right) \\
+&amp;= 1 - \prod_{i=1}^{d}{\mathbb{P}\left(\{\text{Falsely reject } H_{0, i}\}^{c} \right)} \\
+&amp;= 1 - \prod_{i=1}^{d}(1 - \mathbb{P}\left(\text{Falsely reject } H_{0, i} \right)) \\
+&amp;= 1 - \prod_{i=1}^{d}(1 - (1 - (1 - \alpha)^{\frac{1}{d}})) \\
+&amp;= 1 - \prod_{i=1}^{d}(1 - \alpha)^{\frac{1}{d}} \\
+&amp;= 1 - (1 - \alpha) \\
+&amp;= \alpha
+\end{align*}\]</span>
+as required.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> This procedure specifically requires independence of the tests i.e. p-values since. The gain from the indepedence strucuture here results in a more powerful test than Bonferroni (prove this!).
+</div>
+
+</div>
+<div id="holms-procedure---improving-on-bonferroni" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Holm’s Procedure - Improving on Bonferroni</h3>
+<p>We can improve on the Bonferroni test in various ways. If we assume a bit
+more knowledge about our experiment and note that out of <span class="math inline">\(d\)</span> tests that
+<span class="math inline">\(d_0\)</span> are true nulls. Let us denote the indices of all tests as <span class="math inline">\(I\)</span> and the
+indices of the true nulls as <span class="math inline">\(I_0\)</span>. Then we have by definition <span class="math inline">\(I_0 \subseteq I\)</span>. In this case we can just use the p-value cut-off value of <span class="math inline">\(\frac{\alpha}{d_0}\)</span> and control the <span class="math inline">\(\text{FWER}\)</span> at level <span class="math inline">\(\alpha\)</span>.</p>
+<p>Equipped with this intuition, Holm’s procedure is as follows:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-8" class="theorem"><strong>Theorem 1.3  (Holm’s Procedure)  </strong></span>Suppose we have ordered p-values for the <span class="math inline">\(d\)</span> tests as <span class="math inline">\(p_{(i)}\)</span> for all <span class="math inline">\(i \in d\)</span>. Then Holm’s controls FWER by rejecting all <span class="math inline">\(H_{(i)}\)</span> for <span class="math inline">\(i &lt; i^{*}\)</span> where:
+<span class="math display">\[i^{*} = \min \left\{i : p_{(i)} &gt; \frac{\alpha}{d - i + 1 } \right\}\]</span>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> Let <span class="math inline">\(I_0\)</span> denote the true nulls from the set of all hypothesis <span class="math inline">\(I\)</span>. We then
+have that if:
+<span class="math display">\[\min_{i \in I_0}(p_i) &gt; \frac{\alpha}{d_0}\]</span>
+then we would reject none of the true nulls. This is because the first time
+we would encounter a true null, we would compare it to a threshold that is
+at most <span class="math inline">\(\frac{\alpha}{d_0}\)</span> and if we fail to reject it, then we would not reject any of the true nulls.</p>
+So the <span class="math inline">\(\text{FWER}\)</span> is:
+<span class="math display">\[\begin{align*}
+\text{FWER} &amp;= \mathbb{P}\left(\min_{i \in I_0}(p_i) \le \frac{\alpha}{d_0} \right) \\
+&amp;= \mathbb{P}\left(\bigcup_{i \in I_0} \mathbb{P}\left\{p_i \le \frac{\alpha}{d_0} \right\} \right) \\
+&amp;\le \sum_{i \in I_0} \mathbb{P}\left(p_i \le \frac{\alpha}{d_0} \right) \\
+&amp;= d_0 \left(\frac{\alpha}{d_0}\right) \\
+&amp;= \alpha
+\end{align*}\]</span>
+as required.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Holm’s procedure controls <span class="math inline">\(\text{FWER}\)</span> at level <span class="math inline">\(\alpha\)</span> and does not require the independence of p-values (similar to Bonferroni). However
+it strictly dominates Bonferroni in the sense of higher power (CHECK THIS, PROVE IT)!
+</div>
+
+</div>
+</div>
+<div id="correcting-for-multiple-testing" class="section level2">
+<h2><span class="header-section-number">1.3</span> Correcting for Multiple Testing</h2>
+<p>There are several ways to correct for false discovery in the case of
+multiple testing procedures. Once again in the spirit of the Neyman Pearson
+framework we want to ensure that we first control for the Type I error i.e.
+the probability of False Discovery. Specifically in single hypothesis testing
+we want to ensure that</p>
+<p>One way is to control the Familywise Error Rate i.e. <span class="math inline">\(\text{FWER}\)</span>. This is the probability of making atleast one false
+discovery (i.e. rejecting the null when the null is true) amongst all tested
+hypotheses. This is a quite conservative approach to FD control.</p>
+</div>
+<div id="relationships-between-textfdr-and-textfwer" class="section level2">
+<h2><span class="header-section-number">1.4</span> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></h2>
+<p>We note the following 2 key theorems which link <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span>.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-11" class="theorem"><strong>Theorem 1.4  (FDR = FWER under Global Null)  </strong></span>Under the Global Null we have that FDR control is equivalent to FWER control
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> Under the global null<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> we have
+that all rejections are false rejections i.e. <span class="math inline">\(V = R\)</span>. We first consider two
+cases namely that there are no false rejections <span class="math inline">\(V = 0\)</span> and
+secondly if there are any false rejections at all i.e. <span class="math inline">\(V \ge 1\)</span>.</p>
+<p>When <span class="math inline">\(V = 0\)</span> then we have that <span class="math inline">\(\text{FDP} = 0\)</span> else if <span class="math inline">\(V \ge 1\)</span> we have
+that <span class="math inline">\(\text{FDP} = 1\)</span>.</p>
+<p>So we have that:</p>
+<span class="math display">\[\begin{align}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) 
+                          &amp;= (0) \times \mathbb{P}(V = 0) + 
+                             (1) \times \mathbb{P}(V \ge 1) \\
+&amp;= \mathbb{P}(V \ge 1) \\
+&amp;= \text{FWER}
+\end{align}\]</span>
+as required.
+</div>
+
+<p>This now brings us to the following important theorem<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>:</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-13" class="theorem"><strong>Theorem 1.5  (FWER control always implies FDR control)  </strong></span>We always have that <span class="math inline">\(\text{FWER}\)</span> control implies <span class="math inline">\(\text{FDR}\)</span>
+control.
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> We begin with the simple observation that <span class="math inline">\(FDP = \frac{V}{R} \mathbb{I}(R &gt; 0)\)</span>.
+So we always have <span class="math inline">\(FDP \le 1\)</span> and more specifically we have that <span class="math inline">\(FDP \le \mathbb{I}(V &gt; 0)\)</span>.
+Since if <span class="math inline">\(V = 0 \implies FDP = 0 \le 1\)</span> and <span class="math inline">\(V \ge 1 \implies FDP = \frac{V}{R} \le 1\)</span>.</p>
+<p>Taking expectations we have that:</p>
+<span class="math display">\[\begin{align*}\text{FDR} = \mathbb{E}\left(\text{FDP} \right) &amp;\le 
+                             \mathbb{E}\left(\mathbb{I}(V &gt; 0) \right) \\
+                            &amp;= \mathbb{P}(V \ge 1) \\                                                            
+                            &amp;= \text{FWER}
+\end{align*}\]</span>
+as required.
+</div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>We’ll come back to sequential testing later<a href="introduction.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>i.e. all null hypotheses are assumed to be true<a href="introduction.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>In other words
+<span class="math inline">\(\text{FWER}\)</span> control is a more conservative method of controlling False
+Discovery in multiple testing than <span class="math inline">\(\text{FDR}\)</span> control.<a href="introduction.html#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

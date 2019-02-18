@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Bookdown
+packages.bib
+_bookdown_files/
+selective-inference-notes.rds
+selective-inference-notes.tex
+preface.html

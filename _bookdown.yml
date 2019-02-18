@@ -1,0 +1,8 @@
+book_filename: "selective-inference-notes"
+chapter_name: "Chapter "
+rmd_files: ["index.Rmd", "01-Introduction.Rmd"]
+output_dir: docs
+delete_merged_file: true
+bibliography: [refs.bib]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
