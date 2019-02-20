@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 5 False discovery rate | Selective Inference and Multiple Testing - Survey</title>
+  <meta name="description" content="Chapter 5 False discovery rate | Selective Inference and Multiple Testing - Survey">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 5 False discovery rate | Selective Inference and Multiple Testing - Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 False discovery rate | Selective Inference and Multiple Testing - Survey" />
+  
+  
+  
+
+
+
+<meta name="date" content="2019-02-20">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="family-wise-error-rate.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Bookdown Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-multiple-testing"><i class="fa fa-check"></i><b>1.1</b> What is Multiple Testing</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#textfwer-control-methods"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\text{FWER}\)</span> Control methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#bonferroni-correction---textfwer-under-dependence"><i class="fa fa-check"></i><b>1.2.1</b> Bonferroni Correction - <span class="math inline">\(\text{FWER}\)</span> under dependence</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#sidak-correction---textfwer-under-independence"><i class="fa fa-check"></i><b>1.2.2</b> Sidak Correction - <span class="math inline">\(\text{FWER}\)</span> under independence</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#holms-procedure---improving-on-bonferroni"><i class="fa fa-check"></i><b>1.2.3</b> Holm’s Procedure - Improving on Bonferroni</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#correcting-for-multiple-testing"><i class="fa fa-check"></i><b>1.3</b> Correcting for Multiple Testing</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#relationships-between-textfdr-and-textfwer"><i class="fa fa-check"></i><b>1.4</b> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Intro</a></li>
+<li class="chapter" data-level="3" data-path="multiple-testing-notation.html"><a href="multiple-testing-notation.html"><i class="fa fa-check"></i><b>3</b> Multiple testing notation</a></li>
+<li class="chapter" data-level="4" data-path="family-wise-error-rate.html"><a href="family-wise-error-rate.html"><i class="fa fa-check"></i><b>4</b> Family-wise error rate</a><ul>
+<li class="chapter" data-level="4.1" data-path="family-wise-error-rate.html"><a href="family-wise-error-rate.html#holms-procedure"><i class="fa fa-check"></i><b>4.1</b> Holm’s procedure</a></li>
+<li class="chapter" data-level="4.2" data-path="family-wise-error-rate.html"><a href="family-wise-error-rate.html#step-up-with-hochberg"><i class="fa fa-check"></i><b>4.2</b> Step-Up with Hochberg</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="false-discovery-rate.html"><a href="false-discovery-rate.html"><i class="fa fa-check"></i><b>5</b> False discovery rate</a><ul>
+<li class="chapter" data-level="5.1" data-path="false-discovery-rate.html"><a href="false-discovery-rate.html#benjamini-hochberg-procedure"><i class="fa fa-check"></i><b>5.1</b> Benjamini-Hochberg procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Selective Inference and Multiple Testing - Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="false-discovery-rate" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> False discovery rate</h1>
+<p>Introduced by <span class="citation">Benjamini and Hochberg (<a href="#ref-Benjamini95">1995</a>)</span>, the <strong>false discovery rate</strong> (FDR) is a multiple testing
+error control criterion ideally suited for scenarios such as GWAS where we are
+potentially testing millions of SNPs. Rather than trying to make it unlikely
+that <em>even one false discovery is made</em>, we can instead control the expected
+<strong>false discovery proportion</strong> (FDP):</p>
+<p><span class="math display">\[
+\text{FDP} = \frac{V}{\text{max}(R, 1)} = \begin{cases} \frac{V}{R},\text{ if } R \geq 1 \\ 0,\text{ otherwise} \end{cases}
+\]</span></p>
+<p>However, we do not observe <span class="math inline">\(V\)</span> which means the above FDP is an unobserved
+random variable. The FDR is simply defined as its expectation,</p>
+<p><span class="math display">\[
+\text{FDR} = \mathbb{E}[\text{FDP}].
+\]</span></p>
+<p>From this definition, it is clear that FDR control <strong>tells us nothing about an
+individual test</strong>, but rather if we repeated experiments many times then <strong>on average</strong>
+we will control the FDP at our desired target level <span class="math inline">\(\alpha\)</span>. This only provides
+us with a very weak bound on the probability of observing the FDP exceed a threshold
+folloinwg Markov’s inequality (<strong>useful to show this or no?</strong>). It’s easy to see
+that FWER control implies FDR control: we know that <span class="math inline">\(1_{\{V \geq 1\}} \geq\)</span> FDP
+since <span class="math inline">\(V \leq R\)</span>, and taking the expectation of both sides gives us <span class="math inline">\(\mathbb{P}(V \geq 1) \geq\)</span> FDR.
+The converse does not hold obviously, as FDR is equivalent to FWER only under
+the global null setting where <span class="math inline">\(V = R\)</span>, all discoveries/rejections are false positives.
+Meaning, FDR can be viewed as a <strong>very weak form of error control</strong>. This is not
+necessarily a negative feature, but instead gives us <strong>greater power</strong> in addressing
+the multiplicity problem compared ot FWER control.</p>
+<div id="benjamini-hochberg-procedure" class="section level2">
+<h2><span class="header-section-number">5.1</span> Benjamini-Hochberg procedure</h2>
+<p><span class="citation">Benjamini and Hochberg (<a href="#ref-Benjamini95">1995</a>)</span> proposed the following procedure, which we’ll refer to as <strong>BH</strong>,
+to control the FDR at target level <span class="math inline">\(\alpha\)</span>:</p>
+<ul>
+<li>Sort the p-values in ascending order: <span class="math inline">\(p_{(1)} \leq \cdot \cdot \cdot \leq p_{(n)}\)</span></li>
+<li>Let <span class="math inline">\(i_0\)</span> be the largest <span class="math inline">\(i\)</span> for which <span class="math inline">\(p_{(i)} \leq \frac{i}{n} \alpha\)</span></li>
+<li>Reject all <span class="math inline">\(H_{(i)}\)</span> with <span class="math inline">\(i \leq i_{(0)}\)</span></li>
+</ul>
+<p>The following code chunk generates the results for one million tests, to visualize
+this step-up procedure using same proportion of null results (80%) as the Holm’s
+demonstration above but with fewer tests (100,000) and weaker alternative effect
+size (<span class="math inline">\(\mu = 2\)</span>) just for visualization purposes.</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim_bh_data &lt;-<span class="st"> </span><span class="cf">function</span>(n_null, n_alt, alpha, <span class="dt">alt_effect_size =</span> <span class="dv">3</span>) {
+  
+  <span class="co"># First generate vector of z-scores for both null and alternatives:</span>
+  pvals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(n_null, <span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(n_alt, alt_effect_size, <span class="dv">1</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># Now generate the p-values:</span>
+<span class="st">    </span>{<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(.))}
+  
+  <span class="co"># Generate a vector of the actual test types:</span>
+  test_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;null&quot;</span>, n_null), <span class="kw">rep</span>(<span class="st">&quot;alt&quot;</span>, n_alt))
+  
+  <span class="co"># Now use the p.adjust function to create vectors of the adjusted p-values</span>
+  <span class="co"># for BH:</span>
+  bh_pvals &lt;-<span class="st"> </span><span class="kw">p.adjust</span>(pvals, <span class="dt">method =</span> <span class="st">&quot;BH&quot;</span>)
+  
+  <span class="co"># Return a dataframe with the p-values and a column indicating whether or not</span>
+  <span class="co"># it was rejected under BH and reutnr</span>
+  <span class="kw">data.frame</span>(<span class="st">&quot;pvals&quot;</span> =<span class="st"> </span>pvals,
+             <span class="st">&quot;bh_rejection&quot;</span> =<span class="st"> </span>bh_pvals <span class="op">&lt;</span><span class="st"> </span>alpha) <span class="op">%&gt;%</span>
+<span class="st">    </span>return
+}
+
+
+<span class="co"># Generate the example data, then arrange it by the p-value and create</span>
+<span class="co"># a column that serves as the BH threshold:</span>
+bh_data_example &lt;-<span class="st"> </span><span class="kw">sim_bh_data</span>(<span class="dv">80000</span>, <span class="dv">20000</span>, <span class="dt">alpha =</span> <span class="fl">0.05</span>,
+                               <span class="dt">alt_effect_size =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(pvals) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">test_i =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>(),
+         <span class="dt">bh_threshold =</span> <span class="fl">.05</span> <span class="op">*</span><span class="st"> </span>test_i <span class="op">/</span><span class="st"> </span><span class="kw">n</span>())
+
+<span class="co"># Access cowplot</span>
+<span class="co"># install.packages(&quot;cowplot&quot;)</span>
+<span class="kw">library</span>(cowplot)
+all_bh_plot &lt;-<span class="st"> </span>bh_data_example <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> test_i)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pvals), <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> bh_threshold), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sorted index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sorted p-value&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">latex2exp</span>(<span class="st">&#39;BH rejection line $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>))
+
+zoomed_bh_plot &lt;-<span class="st"> </span>bh_data_example <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(test_i <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> test_i)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pvals), <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> bh_threshold), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sorted index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sorted p-value&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">latex2exp</span>(<span class="st">&#39;BH rejection line $</span><span class="ch">\\</span><span class="st">alpha = 0.05$ (smallest 3000 p-values)&#39;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>))
+  
+<span class="kw">plot_grid</span>(all_bh_plot, zoomed_bh_plot, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The BH procedure is <em>adaptive</em> in the sense that it depends on the specific
+p-values, meaning that two different sets of p-values could generate different
+rejection thresholds for the same target level <span class="math inline">\(\alpha\)</span>. Most importantly,
+under the assumption of <strong>independent tests</strong> (just like Hochberg’s procedure),
+BH controls the FDR at target level <span class="math inline">\(\alpha\)</span> regardless if all tests or just
+proportion are truly null. In fact, BH actually provides conservative FDR control,
+where the FDR under BH for target level <span class="math inline">\(\alpha\)</span> is such that,</p>
+<p><span class="math display">\[
+FDR = \frac{n_0}{n} \cdot \alpha \leq \alpha.
+\]</span></p>
+<p>The next code chunk compares the performance of BH with Holm’s, demonstrating
+the tremendous increase in power:</p>
+<pre class="sourceCode r"><code class="sourceCode r">bh_holm_sims &lt;-<span class="st"> </span><span class="kw">map_dfr</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,
+                        <span class="cf">function</span>(x) {
+                          <span class="kw">compare_multi_testing</span>(<span class="dt">n_null =</span> <span class="dv">800000</span>,
+                                                <span class="dt">n_alt =</span> <span class="dv">200000</span>,
+                                                <span class="dt">alpha =</span> <span class="fl">.05</span>,
+                                                <span class="dt">method1 =</span> <span class="st">&quot;BH&quot;</span>,
+                                                <span class="dt">method2 =</span> <span class="st">&quot;holm&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">                            </span><span class="kw">mutate</span>(<span class="dt">sim_i =</span> x)
+                          })
+
+<span class="co"># Display the comparison of power (S / n_alt) between the two methods:</span>
+bh_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Calculate the power:</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">power =</span> S <span class="op">/</span><span class="st"> </span>(n <span class="op">-</span><span class="st"> </span>n0)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Can just select the method, power, and sim_i columns</span>
+<span class="st">  </span><span class="kw">select</span>(method, power, sim_i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Now generate the violin plot comparing the power distribution for</span>
+<span class="st">  </span><span class="co"># both methods:</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> method, <span class="dt">y =</span> power)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">mult =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Method&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Mean power with +/- two standard errors&quot;</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Comparison of power between BH and Holm&#39;s procedure&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Based on 100 simulations, 80% true nulls for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>But as the saying goes, with great power comes great responsibility, because a
+method for controlling FDR is not appropriate for every situation such as one
+with more costly mistakes. The following comparison between the FDP for Holm’s
+and BH reveals that conservative nature of BH in this case actually controlling
+the FDR at <span class="math inline">\(0.8 \cdot 0.05 = 0.04\)</span>, clearly less than the target level FDR of 0.05.
+Several methods have been developed addressing this conservative nature of BH,
+improving upon its power while including guaranteed FDR control. These will
+be covered in future notes.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Display the comparison of FDP (V / R) between the two methods:</span>
+bh_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Calculate the fdp:</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fdp =</span> V <span class="op">/</span><span class="st"> </span>R) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Can just select the method, FDP, and sim_i columns</span>
+<span class="st">  </span><span class="kw">select</span>(method, fdp, sim_i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Now generate the violin plot comparing the power distribution for</span>
+<span class="st">  </span><span class="co"># both methods:</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> method, <span class="dt">y =</span> fdp)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">mult =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">.05</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;darkred&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Method&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Mean FDP with +/- two standard errors&quot;</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Comparison of FDP between BH and Holm&#39;s procedure&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Based on 100 simulations, 80% true nulls for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><strong>Proof</strong>:</p>
+<p>For each <span class="math inline">\(i \in \mathcal{H}_0\)</span> let <span class="math inline">\(V_i = 1_{\{ H_i rejected\}}\)</span>, then</p>
+<p><span class="math display">\[
+\text{FDP} = \sum_{i \in \mathcal{H}_0} \frac{V_i}{\text{max}(R, 1)}.
+\]</span></p>
+<p>Let’s just assume that <span class="math inline">\(\mathbb{E}[V_i / \text{max}(R, 1)] = \alpha / n\)</span>. Using
+this fact the result immediately follows:</p>
+<p><span class="math display">\[
+\text{FDR} = \mathbb{E}[\text{FDP}] = \sum_{i \in \mathcal{H}_0} \mathbb{E} \Big[\frac{V_i}{\text{max}(R, 1)} \Big]
+= \sum_{i \in \mathcal{H}_0} \frac{\alpha}{n} = \frac{n_0}{n} \cdot \alpha.
+\]</span></p>
+<p>Now comes the difficult part, proving the above claim that <span class="math inline">\(\mathbb{E}[V_i / \text{max}(R, 1)] = \alpha / n\)</span>.</p>
+<p><em>Insert martingale proof</em></p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Benjamini95">
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 57 (1). [Royal Statistical Society, Wiley]:289–300. <a href="http://www.jstor.org/stable/2346101" class="uri">http://www.jstor.org/stable/2346101</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="family-wise-error-rate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

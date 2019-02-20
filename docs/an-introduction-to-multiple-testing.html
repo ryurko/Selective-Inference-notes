@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 2 An introduction to multiple testing | Selective Inference and Multiple Testing - Survey</title>
+  <meta name="description" content="Chapter 2 An introduction to multiple testing | Selective Inference and Multiple Testing - Survey">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 2 An introduction to multiple testing | Selective Inference and Multiple Testing - Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 An introduction to multiple testing | Selective Inference and Multiple Testing - Survey" />
+  
+  
+  
+
+
+
+<meta name="date" content="2019-02-20">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Bookdown Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-multiple-testing"><i class="fa fa-check"></i><b>1.1</b> What is Multiple Testing</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#textfwer-control-methods"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\text{FWER}\)</span> Control methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#bonferroni-correction---textfwer-under-dependence"><i class="fa fa-check"></i><b>1.2.1</b> Bonferroni Correction - <span class="math inline">\(\text{FWER}\)</span> under dependence</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#sidak-correction---textfwer-under-independence"><i class="fa fa-check"></i><b>1.2.2</b> Sidak Correction - <span class="math inline">\(\text{FWER}\)</span> under independence</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#holms-procedure---improving-on-bonferroni"><i class="fa fa-check"></i><b>1.2.3</b> Holm’s Procedure - Improving on Bonferroni</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#correcting-for-multiple-testing"><i class="fa fa-check"></i><b>1.3</b> Correcting for Multiple Testing</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#relationships-between-textfdr-and-textfwer"><i class="fa fa-check"></i><b>1.4</b> Relationships between <span class="math inline">\(\text{FDR}\)</span> and <span class="math inline">\(\text{FWER}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html"><i class="fa fa-check"></i><b>2</b> An introduction to multiple testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
+<li class="chapter" data-level="2.2" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#multiple-testing-notation"><i class="fa fa-check"></i><b>2.2</b> Multiple testing notation</a></li>
+<li class="chapter" data-level="2.3" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#family-wise-error-rate"><i class="fa fa-check"></i><b>2.3</b> Family-wise error rate</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#holms-procedure"><i class="fa fa-check"></i><b>2.3.1</b> Holm’s procedure</a></li>
+<li class="chapter" data-level="2.3.2" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#step-up-with-hochberg"><i class="fa fa-check"></i><b>2.3.2</b> Step-Up with Hochberg</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#false-discovery-rate"><i class="fa fa-check"></i><b>2.4</b> False discovery rate</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="an-introduction-to-multiple-testing.html"><a href="an-introduction-to-multiple-testing.html#benjamini-hochberg-procedure"><i class="fa fa-check"></i><b>2.4.1</b> Benjamini-Hochberg procedure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>3</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Selective Inference and Multiple Testing - Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="an-introduction-to-multiple-testing" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> An introduction to multiple testing</h1>
+<div id="motivation" class="section level2">
+<h2><span class="header-section-number">2.1</span> Motivation</h2>
+<p>A single hypothesis test proceeds by:</p>
+<ol>
+<li>stating a <strong>null hypothesis</strong> <span class="math inline">\(H_0\)</span> and an <strong>alternative hypothesis</strong> <span class="math inline">\(H_A\)</span>,</li>
+<li>constructing a <strong>test statistic</strong> <span class="math inline">\(T\)</span> using the data,</li>
+<li>choose a target level Type I (false positive) error rate <span class="math inline">\(\alpha\)</span> to control for ,</li>
+<li>and <strong>rejecting</strong> <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_A\)</span> when the probability of observing <span class="math inline">\(T\)</span> (or
+more extreme value) when <span class="math inline">\(H_0\)</span> is true, is less than or equal to <span class="math inline">\(\alpha\)</span>.</li>
+</ol>
+<p>However, in modern scientific practice, it is rare for only a single hypothesis
+to be tested. Consider the example of genome-wide association studies (GWAS) which are
+observational studies of typically one million or more variants, known as single nucleotide polymorphisms (SNPs),
+to identify which variants are associated with a trait/phenotype of interest. If
+we were testing the association with a certain disease for one million SNPs and
+simply proceeded as above to reject each individual <span class="math inline">\(H_{0,i}\)</span> for <span class="math inline">\(i = 1,...,\  n=1,000,000\)</span>
+when the p-value <span class="math inline">\(\leq \alpha = 0.05\)</span>, then we would expect to reject 50,000 true
+null hypotheses! The following code demonstrates this exactly by generating z-scores from
+the null distribution with mean equal to zero for one million tests and reporting
+the number of false discoveries, repeating this 100 times.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Access tidyverse</span>
+<span class="co"># install.packages(&quot;tidyverse&quot;)</span>
+<span class="kw">library</span>(tidyverse)
+
+<span class="co"># Access latex2exp</span>
+<span class="co"># install.packages(&quot;latex2exp&quot;)</span>
+<span class="kw">library</span>(latex2exp)
+
+<span class="co"># Generate a pipeline function to return the number of false rejections for a</span>
+<span class="co"># two-tailed z test with n tests and target alpha applied to each individual</span>
+<span class="co"># test without multiple testing correction:</span>
+sim_n_z_tests &lt;-<span class="st"> </span><span class="cf">function</span>(n_tests, alpha) {
+  <span class="kw">rnorm</span>(n_tests, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span>{<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(.))} <span class="op">%&gt;%</span>
+<span class="st">    </span>{<span class="kw">which</span>(. <span class="op">&lt;</span><span class="st"> </span>alpha)} <span class="op">%&gt;%</span>
+<span class="st">    </span>length <span class="op">%&gt;%</span>
+<span class="st">    </span>return
+}
+
+<span class="co"># Generate 100 times the number of false rejections for simple two-tailed z test </span>
+<span class="co"># where all the results are generated from the null distribution:</span>
+<span class="kw">data.frame</span>(<span class="st">&quot;n_rej&quot;</span> =<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">sim_n_z_tests</span>(<span class="dv">1000000</span>, <span class="fl">.05</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> n_rej)) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Generate a histogram of the number of false rejections:</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Add a vertical line at the mean number:</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(n_rej)), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>,
+             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Number of false rejections&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">TeX</span>(<span class="st">&#39;Distribution of the number of false rejections for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = .05$&#39;</span>),
+       <span class="dt">subtitle =</span> <span class="st">&quot;Simulated 100 times, vertical dashed line indicates average number of false rejections&quot;</span>)</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>With such a high number of expected false rejections we have to make a correction.
+The prevalence of the <strong>multiple testing</strong> problem in science has led to the development
+of a variety of approaches and methods for correcting/adjusting p-value cutoffs
+for the rejection decision <strong>while accounting for the presence of multiple tests</strong>.
+This initial set of notes covers the fundamentals of multiple testing, briefly
+explaining the conservative <strong>family-wise error rate (FWER)</strong> before diving into
+our main interest of the <strong>false discovery rate (FDR)</strong>.</p>
+</div>
+<div id="multiple-testing-notation" class="section level2">
+<h2><span class="header-section-number">2.2</span> Multiple testing notation</h2>
+<p>Let <span class="math inline">\([n]\)</span> equal the set <span class="math inline">\(\{ 1,..., n\}\)</span>, where <span class="math inline">\(n\)</span> equals the number of
+tests/hypotheses we are interested in. We denote the hypothesis as <span class="math inline">\(H_i\)</span>, for
+each <span class="math inline">\(i \in [n]\)</span>, where the set of true null hypotheses is <span class="math inline">\(\mathcal{H}_0 = \{ i : H_i = 0 \}\)</span>
+(ie <span class="math inline">\(i^{th}\)</span> null is true) and <span class="math inline">\(n_0 = |\mathcal{H}_0|\)</span>. We observe p-values
+<span class="math inline">\(p_i \in [0, 1]\)</span> for each test <span class="math inline">\(i\)</span> under the null hypothesis which is commonly
+referred to as <span class="math inline">\(H_{0, i}\)</span>.</p>
+<p>Throughout these notes we will refer to significant p-values as <strong>discoveries</strong> or
+<strong>rejections</strong> interchangeably (ie <span class="math inline">\(H_i = 0\)</span> is rejected).
+The table below provides notation that will be used throughout the notes
+representing the results of testing the <span class="math inline">\(n\)</span> hypotheses of interest:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Decision: accept <span class="math inline">\(H_{0,i}\)</span></th>
+<th>Decision: reject <span class="math inline">\(H_{0,i}\)</span></th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Truth:</strong> <span class="math inline">\(H_i = 0\)</span></td>
+<td><span class="math inline">\(U\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+<td><span class="math inline">\(n_0\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Truth:</strong> <span class="math inline">\(H_i = 1\)</span></td>
+<td><span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(S\)</span></td>
+<td><span class="math inline">\(n - n_0\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(n - R\)</span></td>
+<td><span class="math inline">\(R\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the table above <span class="math inline">\(U,\  V,\  S,\  T\)</span> are <strong>unobserved</strong> random variables while <span class="math inline">\(R\)</span> is
+an <strong>observed</strong> random variable. We denote the <strong>rejection set</strong> as <span class="math inline">\(\mathcal{R} = \{i: H_i\)</span> is rejected <span class="math inline">\(\}\)</span>,
+where <span class="math inline">\(R = |\mathcal{R}|\)</span>. The two quantities we will focus on are the number
+of false discoveries (aka false positives), <span class="math inline">\(V\)</span>, and the total number of discoveries, <span class="math inline">\(R\)</span>.</p>
+<p>To be clear, the <strong>multiple testing</strong> problem of interest is about testing each
+of the <span class="math inline">\(n\)</span> hypotheses separately, versus the <strong>global testing</strong> problem which
+seeks to answer whether <strong>any</strong> null hypothesis <span class="math inline">\(i \in [n]\)</span> can be rejected.</p>
+</div>
+<div id="family-wise-error-rate" class="section level2">
+<h2><span class="header-section-number">2.3</span> Family-wise error rate</h2>
+<p>The classical approach for addressing the multiple testing problem is by
+controlling the probability of falsely rejecting <strong>any</strong> null hypotheses. This
+is known as the __family-wise error rate (FWER):</p>
+<p><span class="math display">\[
+\text{FWER} = \mathbb{P}( V \geq 1)
+\]</span></p>
+<p>for some target level <span class="math inline">\(\alpha\)</span> such that FWER <span class="math inline">\(\leq \alpha\)</span>. Probably the most
+commonly used <strong>multiple comparison procedure (MCP)</strong> for cotnrolling FWER is
+<strong>Bonferroni’s method</strong>: reject all <span class="math inline">\(H_{0,i}\)</span> such that <span class="math inline">\(p_i \leq \alpha / n\)</span>.
+Bonferroni <strong>corrects</strong> the p-values by the number of tests <span class="math inline">\(n\)</span> and controls
+FWER in the <strong>strong</strong> sense, meaning that by using
+Bonferroni’s method the FWER <span class="math inline">\(\leq \alpha\)</span> <strong>for all</strong> configurations of true
+and false hypotheses (ie when all true hypotheses versus a fraction of true
+null hypotheses). Additionally Bonferonni controls FWER when the tests are
+independent <strong>or</strong> dependent.</p>
+<p><strong>Proof:</strong> Using the notation from above, wonsider the random variable:</p>
+<p><span class="math display">\[
+V_i = \begin{cases} 1 \text{ if } H_{0,i} \text{ is rejected}, \\
+0 \text{ otherwise}
+\end{cases}
+\]</span></p>
+<p>where <span class="math inline">\(V = \sum_{i \in {\mathcal{H}_0}} V_i\)</span>. Next we can take the expectation
+of the number of false discoveries and write it as,</p>
+<p><span class="math display">\[
+\mathbb{E} [ V ] = \sum_{i \in {\mathcal{H}_0}} \mathbb{E} [V_i] = \sum_{i \in {\mathcal{H}_0}} \mathbb{P} (V_i = 1).
+\]</span></p>
+<p>Remember for an individual hypothesis test we can control the probability of
+a Type I error (false positive), <span class="math inline">\(\mathbb{P}(V_i = 1)\)</span>, by rejecting the null
+only if the p-value is less than some threshold level <span class="math inline">\(\alpha\)</span>. For Bonferroni’s
+method, we reject the null hypothesis for an individual test if its p-value
+<span class="math inline">\(p_i \leq \alpha / n\)</span>. This means we can simply plug in the quantity <span class="math inline">\(\alpha/n\)</span>
+into the above to arrive at</p>
+<p><span class="math display">\[
+\mathbb{E} [ V ] = \sum_{i \in {\mathcal{H}_0}} \frac{\alpha}{n} = \frac{n_0}{n} \cdot \alpha.
+\]</span></p>
+<p>We have now proved that Bonferroni’s method controls FWER because,</p>
+<p><span class="math display">\[
+\text{FWER} = \mathbb{P}(V \geq 1) \leq \mathbb{P} (V \geq 1) + \mathbb{P}(V \geq 2) + . . . + \mathbb{P}(V \geq n) = \mathbb{E}[V] = \frac{n_0}{n} \cdot \alpha.\  \blacksquare
+\]</span></p>
+<p>In the code chunk below, we revisit the simulation example from above but now
+use Bonferroni’s method for rejecting the null hypothesis. We now see that in
+roughly 95 of the 100 simulations zero hypotheses are rejected (ideal in this
+setting where the null is true for all tests), while about five simulations result
+in only one false rejection. A stark contrast from the original approach
+of just determining each test status separately!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Generate 100 times the number of false rejections for simple two-tailed z test </span>
+<span class="co"># where all the results are generated from the null distribution:</span>
+<span class="kw">data.frame</span>(<span class="st">&quot;n_rej&quot;</span> =<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">sim_n_z_tests</span>(<span class="dv">1000000</span>, <span class="fl">.05</span> <span class="op">/</span><span class="st"> </span><span class="dv">1000000</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> n_rej)) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Generate a barchart of the number of false rejections:</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>,
+                 <span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count)))) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Add a vertical line at the mean number:</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">.05</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>,
+             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="kw">TeX</span>(<span class="st">&#39;$V$ (number of false rejections)&#39;</span>), <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">TeX</span>(<span class="st">&#39;Distribution of the Bonferroni $V$ for one million tests simulated 100 times&#39;</span>),
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Horizontal dashed line indicates FWER control at $</span><span class="ch">\\</span><span class="st">alpha = .05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="holms-procedure" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Holm’s procedure</h3>
+<p>While the Bonferonni procedure provides FWER control in the strong sense, it can
+be overly conservative when <span class="math inline">\(n_0 &lt; n\)</span>, and does
+not take advantage of information provided by the p-values themselves. Intuitively,
+when testing <span class="math inline">\(H_i\)</span>, we can use the other p-values <span class="math inline">\(\{ p_j \}_{j \neq i}\)</span> to provide
+us with some information about, for instance, the proportion of null hypotheses and
+then adjust the p-value correction accordingly. If we somehow knew the actual <span class="math inline">\(n_0 &lt; n\)</span>,
+then we could insert <span class="math inline">\(\alpha / n_0\)</span> into the Bonferroni method to maintain
+strong FWER control.</p>
+<p>Consider the following procedure which adjusts the Bonferroni after observing
+p-values, known as <strong>Holm’s procedure</strong>:</p>
+<ul>
+<li>Sort the p-values in ascending order <span class="math inline">\(p_{(1)} \leq p_{(2)} \leq ... \leq p_{(n)}\)</span>,
+let <span class="math inline">\(H_{(1)}, H_{(2)}, ..., H_{(n)}\)</span> be their respective hypotheses.</li>
+<li><strong>Step 1</strong>: If <span class="math inline">\(p_{(1)} &lt; \alpha / n\)</span> then reject <span class="math inline">\(H_{(1)}\)</span> and proceed to
+Step 2. Otherwise, accept all <span class="math inline">\(H_{(1)}, H_{(2)}, ..., H_{(n)}\)</span> and <strong>stop</strong>.</li>
+<li><strong>Step 2</strong>: If <span class="math inline">\(p_{(2)} &lt; \alpha / (n - 1)\)</span> then reject <span class="math inline">\(H_{(2)}\)</span> and proceed to
+Step 3. Otherwise, accept all <span class="math inline">\(H_{(2)}, H_{(3)}, ..., H_{(n)}\)</span> and <strong>stop</strong>.</li>
+<li><strong>Step <span class="math inline">\(i\)</span></strong>: If <span class="math inline">\(p_{(i)} &lt; \alpha / (n - i + 1)\)</span> then reject <span class="math inline">\(H_{(i)}\)</span> and proceed to
+Step <span class="math inline">\(i + 1\)</span>. Otherwise, accept all <span class="math inline">\(H_{(i)}, H_{(i + 1)}, ..., H_{(n)}\)</span> and <strong>stop</strong>.</li>
+<li><strong>Step <span class="math inline">\(n\)</span></strong>: If <span class="math inline">\(p_{(n)} &lt; \alpha\)</span> then reject <span class="math inline">\(H_{(n)}\)</span>.
+Otherwise, accept <span class="math inline">\(H_{(n)}\)</span>.</li>
+</ul>
+<p>This is called a <strong>step-down</strong> procedure, stopping the first time <span class="math inline">\(p_{(i)}\)</span>
+exceeds the critical value threshold <span class="math inline">\(\alpha_i = \alpha / (n - i + 1)\)</span>. While
+Bonferroni is by far the most the popular method for multiple comparison error
+control, <strong>Holm’s procedure typically results in more rejections (more power)
+and also controls FWER strongly</strong>.</p>
+<p><strong>Proof</strong>: Assume the p-values are sorted in ascending order, and let
+<span class="math inline">\(i_0 = \underset{i \in \mathcal{H}_0}{\text{arg min}}\  p_i\)</span>. This means Holm’s
+procedure arrives at the first true null hypothesis at step <span class="math inline">\(i_0\)</span>. Since there
+can be at most <span class="math inline">\(n - n_0\)</span> false hypotheses preceding the first null hypothesis,
+we have <span class="math inline">\(i_0 \leq n - n_0 + 1\)</span>. In this search, a false rejection is made <strong>if
+and only if</strong>:</p>
+<p><span class="math display">\[
+p_{(1)} \leq \alpha / n,\  p_{(2)} \leq \alpha / (n - 1), ...,\  p_{(i_0)} \leq \alpha / (n - i_0 + 1) \\
+\Rightarrow p_{(i_0)} \leq \alpha / (n - i_0 + 1) \leq \alpha / n_0.
+\]</span>
+Holm’s procedure thus leads to strong FWER control, regardless of whether or not
+tests are independent, using the union bound:</p>
+<p><span class="math display">\[
+\text{FWER} = \mathbb{P}( \underset{i \in \mathcal{H}_0}{\text{min}}\  p_i \leq \alpha / n_0) \leq \sum_{i \in \mathcal{H}_0} \mathbb{P} (p_i \leq \alpha / n_0) = \alpha. \blacksquare
+\]</span></p>
+<p>Given the fact that Holm’s procedure controls the FWER strongly and is not as
+conservative as Bonferroni’s method, <strong>Holm’s should always be used instead</strong>.
+To reinforce this idea, the following code provides a simple simulation demonstrating
+the improved power from Holm’s procedure resulting in the same or increased
+number of true positives while providing the same FWER control. A common excuse
+for using Bonferroni’s method is that it is simpler to implement. For anyone that
+uses <code>R</code> however that is just not true. Included in the base <code>R</code> <code>stats</code> library
+is the <code>p.adjust</code> function which takes in the vector of p-values and type of
+method returning a vector of adjusted p-values. For Bonferonni this means multiplying
+each p-value by the total number of tests considered, while for Holm’s each p-value
+<span class="math inline">\(p_i\)</span> is multiplied by the respective <span class="math inline">\(n - i + 1\)</span>, and then determining which
+adjusted p-values are less than the target FWER threshold <span class="math inline">\(\alpha\)</span>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a function that takes in the number of null tests, number of true </span>
+<span class="co"># alternative tests, a target level FWER alpha, an argument for the</span>
+<span class="co"># alternative effect size with the default of 3, and two methods to compare</span>
+compare_multi_testing &lt;-<span class="st"> </span><span class="cf">function</span>(n_null, n_alt, alpha, <span class="dt">alt_effect_size =</span> <span class="dv">3</span>,
+                                  method1, method2) {
+  
+  <span class="co"># First generate vector of z-scores for both null and alternatives:</span>
+  pvals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(n_null, <span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(n_alt, alt_effect_size, <span class="dv">1</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># Now generate the p-values:</span>
+<span class="st">    </span>{<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(.))}
+  
+  <span class="co"># Generate a vector of the actual test types:</span>
+  test_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;null&quot;</span>, n_null), <span class="kw">rep</span>(<span class="st">&quot;alt&quot;</span>, n_alt))
+  
+  <span class="co"># Now use the p.adjust function to create vectors of the adjusted p-values</span>
+  <span class="co"># for both Bonferonni and Holm&#39;s procedure:</span>
+  m1_pvals &lt;-<span class="st"> </span><span class="kw">p.adjust</span>(pvals, <span class="dt">method =</span> method1)
+  m2_pvals &lt;-<span class="st"> </span><span class="kw">p.adjust</span>(pvals, <span class="dt">method =</span> method2)
+  
+  <span class="co"># Return a data frame row with the number of discoveries and false rejections</span>
+  
+  <span class="co"># First create a vector of the discovery indices for each approach:</span>
+  m1_i &lt;-<span class="st"> </span><span class="kw">which</span>(m1_pvals <span class="op">&lt;</span><span class="st"> </span>alpha)
+  m2_i &lt;-<span class="st"> </span><span class="kw">which</span>(m2_pvals <span class="op">&lt;</span><span class="st"> </span>alpha)
+  
+  <span class="co"># Vectors of true null indices:</span>
+  true_null_i &lt;-<span class="st"> </span><span class="kw">which</span>(test_types <span class="op">==</span><span class="st"> &quot;null&quot;</span>)
+  <span class="co"># True alt indices:</span>
+  true_alt_i &lt;-<span class="st"> </span><span class="kw">which</span>(test_types <span class="op">==</span><span class="st"> &quot;alt&quot;</span>)
+  
+  <span class="co"># Now make the dataframe to return (in long form to make it easier to plot</span>
+  <span class="co"># and using the notation from above for the column names):</span>
+  <span class="kw">data.frame</span>(<span class="st">&quot;method&quot;</span> =<span class="st"> </span><span class="kw">c</span>(method1, method2),
+             <span class="st">&quot;n0&quot;</span> =<span class="st"> </span><span class="kw">rep</span>(n_null, <span class="dv">2</span>),
+             <span class="st">&quot;n&quot;</span> =<span class="st"> </span><span class="kw">rep</span>(n_null <span class="op">+</span><span class="st"> </span>n_alt, <span class="dv">2</span>),
+             <span class="st">&quot;R&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="kw">length</span>(m1_i), <span class="kw">length</span>(m2_i)),
+             <span class="st">&quot;V&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">which</span>(m1_i <span class="op">%in%</span><span class="st"> </span>true_null_i)),
+                     <span class="kw">length</span>(<span class="kw">which</span>(m2_i <span class="op">%in%</span><span class="st"> </span>true_null_i))),
+             <span class="st">&quot;S&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">which</span>(m1_i <span class="op">%in%</span><span class="st"> </span>true_alt_i)),
+                     <span class="kw">length</span>(<span class="kw">which</span>(m2_i <span class="op">%in%</span><span class="st"> </span>true_alt_i)))) <span class="op">%&gt;%</span>
+<span class="st">    </span>return
+}
+
+bf_holm_sims &lt;-<span class="st"> </span><span class="kw">map_dfr</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,
+                        <span class="cf">function</span>(x) {
+                          <span class="kw">compare_multi_testing</span>(<span class="dt">n_null =</span> <span class="dv">800000</span>,
+                                                <span class="dt">n_alt =</span> <span class="dv">200000</span>,
+                                                <span class="dt">alpha =</span> <span class="fl">.05</span>,
+                                                <span class="dt">method1 =</span> <span class="st">&quot;bonferroni&quot;</span>,
+                                                <span class="dt">method2 =</span> <span class="st">&quot;holm&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">                            </span><span class="kw">mutate</span>(<span class="dt">sim_i =</span> x)
+                          })
+
+<span class="co"># Display the distribution of differences in number of true positives by</span>
+<span class="co"># Holm&#39;s with Bonferonni:</span>
+bf_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Can just select the method, S, and sim_i columns</span>
+<span class="st">  </span><span class="kw">select</span>(method, S, sim_i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Now spread out so the difference between the two methods can easily </span>
+<span class="st">  </span><span class="co"># be taken:</span>
+<span class="st">  </span><span class="kw">spread</span>(method, S) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># How many more did Holm&#39;s find?</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">improvement =</span> holm <span class="op">-</span><span class="st"> </span>bonferroni) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> improvement)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>,
+           <span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count)))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(improvement)), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>,
+             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Increase in number of true positives by Holm&#39;s compared to Bonferonni&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Proportion of simulations&quot;</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Distribution of improvement in number of discoveries by Holm&#39;s procedure&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Based on 100 simulations, 80% true nulls for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">bf_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> V)) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Generate a histogram of the number of false rejections:</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>,
+                 <span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">stat</span>(count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(count)))) <span class="op">+</span>
+<span class="st">  </span><span class="co"># Add a vertical line at the mean number:</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">.05</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>,
+             <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>method, <span class="dt">ncol =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="kw">TeX</span>(<span class="st">&#39;$V$ (number of false rejections)&#39;</span>), <span class="dt">y =</span> <span class="st">&quot;Proportion&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">TeX</span>(<span class="st">&#39;Distribution of $V$ for one million tests simulated 100 times&#39;</span>),
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Horizontal dashed line indicates FWER control at $</span><span class="ch">\\</span><span class="st">alpha = .05$&#39;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">strip.background =</span> <span class="kw">element_blank</span>())</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="step-up-with-hochberg" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Step-Up with Hochberg</h3>
+<p>Another way of proving the Holm’s procedure result, is by <strong>closing the Bonferroni
+global test</strong> (<em>maybe we should discuss this approach?</em>). The <strong>Hochberg</strong>
+procedure is another such approach that follows from the <strong>closure principle</strong>,
+by closing Simes (<em>didn’t mention earlier</em>), and considered a <strong>step-up</strong> procedure.
+To make this clear, we mentioned before that Holm’s method is known as a <strong>step-down</strong>
+procedure, taking one step (test) at a time until the p-value fails to be below
+the threshold (stepping down on the test statistics). Holm’s can be written
+more concisely,</p>
+<ul>
+<li><strong>Holm’s</strong>:
+<ul>
+<li><strong>start</strong> <span class="math inline">\(j = 0\)</span></li>
+<li><strong>while</strong> <span class="math inline">\(p_{j + 1} \leq \alpha / (n - j)\)</span>
+<ul>
+<li><strong>step</strong> <span class="math inline">\(j = j + 1\)</span></li>
+</ul></li>
+<li><strong>end</strong></li>
+<li>Reject <span class="math inline">\(H_{(1)}, ...,\  H_{(j)}\)</span></li>
+</ul></li>
+</ul>
+<p>In contrast, the Hochberg procedure moves backwards and steps up on the test
+statistics, stops as soon as it finds a p-value below the threshold to
+reject all the remaining tests. Specifically we write,</p>
+<ul>
+<li><strong>Hochberg</strong>:
+<ul>
+<li><strong>start</strong> <span class="math inline">\(j = n\)</span></li>
+<li><strong>while</strong> <span class="math inline">\(p_{(j)} &gt; \alpha / (n - j + 1)\)</span>
+<ul>
+<li><strong>step</strong> <span class="math inline">\(j = j - 1\)</span></li>
+</ul></li>
+<li><strong>end</strong></li>
+<li>Reject <span class="math inline">\(H_{(1)}, ...,\  H_{(j)}\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Note:</strong> It’s a little confusing at first to see these two methods called
+step-down and step-up procedures since those appear to be the opposite of what
+they’re doing, ie Hochberg starts at <span class="math inline">\(n\)</span> and moves backwards. But the step direction,
+up or down, is not referring to the p-values but the test statistics themselves
+(more specifically absolute values of the test statistics).</p>
+<p>Step-up procedures will generally be more powerful than step-down procedures, but
+in this case Hochberg controls FWER with the caveat that we’re assuming the
+tests are independent of one another. This is a more stringent setting than
+before with Bonferroni or Holm’s which control FWER regardless of the
+dependence between tests. <em>We should focus a section of notes entirely on
+handling dependent tests</em>. Given the name of the method, Hochberg leads into
+our next section, and one of primary interest in the area of multiple testing.</p>
+</div>
+</div>
+<div id="false-discovery-rate" class="section level2">
+<h2><span class="header-section-number">2.4</span> False discovery rate</h2>
+<p>Introduced by <span class="citation">Benjamini and Hochberg (<a href="#ref-Benjamini95">1995</a>)</span>, the <strong>false discovery rate</strong> (FDR) is a multiple testing
+error control criterion ideally suited for scenarios such as GWAS where we are
+potentially testing millions of SNPs. Rather than trying to make it unlikely
+that <em>even one false discovery is made</em>, we can instead control the expected
+<strong>false discovery proportion</strong> (FDP):</p>
+<p><span class="math display">\[
+\text{FDP} = \frac{V}{\text{max}(R, 1)} = \begin{cases} \frac{V}{R},\text{ if } R \geq 1 \\ 0,\text{ otherwise} \end{cases}
+\]</span></p>
+<p>However, we do not observe <span class="math inline">\(V\)</span> which means the above FDP is an unobserved
+random variable. The FDR is simply defined as its expectation,</p>
+<p><span class="math display">\[
+\text{FDR} = \mathbb{E}[\text{FDP}].
+\]</span></p>
+<p>From this definition, it is clear that FDR control <strong>tells us nothing about an
+individual test</strong>, but rather if we repeated experiments many times then <strong>on average</strong>
+we will control the FDP at our desired target level <span class="math inline">\(\alpha\)</span>. This only provides
+us with a very weak bound on the probability of observing the FDP exceed a threshold
+folloinwg Markov’s inequality (<strong>useful to show this or no?</strong>). It’s easy to see
+that FWER control implies FDR control: we know that <span class="math inline">\(1_{\{V \geq 1\}} \geq\)</span> FDP
+since <span class="math inline">\(V \leq R\)</span>, and taking the expectation of both sides gives us <span class="math inline">\(\mathbb{P}(V \geq 1) \geq\)</span> FDR.
+The converse does not hold obviously, as FDR is equivalent to FWER only under
+the global null setting where <span class="math inline">\(V = R\)</span>, all discoveries/rejections are false positives.
+Meaning, FDR can be viewed as a <strong>very weak form of error control</strong>. This is not
+necessarily a negative feature, but instead gives us <strong>greater power</strong> in addressing
+the multiplicity problem compared ot FWER control.</p>
+<div id="benjamini-hochberg-procedure" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Benjamini-Hochberg procedure</h3>
+<p><span class="citation">Benjamini and Hochberg (<a href="#ref-Benjamini95">1995</a>)</span> proposed the following procedure, which we’ll refer to as <strong>BH</strong>,
+to control the FDR at target level <span class="math inline">\(\alpha\)</span>:</p>
+<ul>
+<li>Sort the p-values in ascending order: <span class="math inline">\(p_{(1)} \leq \cdot \cdot \cdot \leq p_{(n)}\)</span></li>
+<li>Let <span class="math inline">\(i_0\)</span> be the largest <span class="math inline">\(i\)</span> for which <span class="math inline">\(p_{(i)} \leq \frac{i}{n} \alpha\)</span></li>
+<li>Reject all <span class="math inline">\(H_{(i)}\)</span> with <span class="math inline">\(i \leq i_{(0)}\)</span></li>
+</ul>
+<p>The following code chunk generates the results for one million tests, to visualize
+this step-up procedure using same proportion of null results (80%) as the Holm’s
+demonstration above but with fewer tests (100,000) and weaker alternative effect
+size (<span class="math inline">\(\mu = 2\)</span>) just for visualization purposes.</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim_bh_data &lt;-<span class="st"> </span><span class="cf">function</span>(n_null, n_alt, alpha, <span class="dt">alt_effect_size =</span> <span class="dv">3</span>) {
+  
+  <span class="co"># First generate vector of z-scores for both null and alternatives:</span>
+  pvals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(n_null, <span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">rnorm</span>(n_alt, alt_effect_size, <span class="dv">1</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># Now generate the p-values:</span>
+<span class="st">    </span>{<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="op">-</span><span class="kw">abs</span>(.))}
+  
+  <span class="co"># Generate a vector of the actual test types:</span>
+  test_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;null&quot;</span>, n_null), <span class="kw">rep</span>(<span class="st">&quot;alt&quot;</span>, n_alt))
+  
+  <span class="co"># Now use the p.adjust function to create vectors of the adjusted p-values</span>
+  <span class="co"># for BH:</span>
+  bh_pvals &lt;-<span class="st"> </span><span class="kw">p.adjust</span>(pvals, <span class="dt">method =</span> <span class="st">&quot;BH&quot;</span>)
+  
+  <span class="co"># Return a dataframe with the p-values and a column indicating whether or not</span>
+  <span class="co"># it was rejected under BH and reutnr</span>
+  <span class="kw">data.frame</span>(<span class="st">&quot;pvals&quot;</span> =<span class="st"> </span>pvals,
+             <span class="st">&quot;bh_rejection&quot;</span> =<span class="st"> </span>bh_pvals <span class="op">&lt;</span><span class="st"> </span>alpha) <span class="op">%&gt;%</span>
+<span class="st">    </span>return
+}
+
+
+<span class="co"># Generate the example data, then arrange it by the p-value and create</span>
+<span class="co"># a column that serves as the BH threshold:</span>
+bh_data_example &lt;-<span class="st"> </span><span class="kw">sim_bh_data</span>(<span class="dv">80000</span>, <span class="dv">20000</span>, <span class="dt">alpha =</span> <span class="fl">0.05</span>,
+                               <span class="dt">alt_effect_size =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(pvals) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">test_i =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>(),
+         <span class="dt">bh_threshold =</span> <span class="fl">.05</span> <span class="op">*</span><span class="st"> </span>test_i <span class="op">/</span><span class="st"> </span><span class="kw">n</span>())
+
+<span class="co"># Access cowplot</span>
+<span class="co"># install.packages(&quot;cowplot&quot;)</span>
+<span class="kw">library</span>(cowplot)
+all_bh_plot &lt;-<span class="st"> </span>bh_data_example <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> test_i)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pvals), <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> bh_threshold), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sorted index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sorted p-value&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">latex2exp</span>(<span class="st">&#39;BH rejection line $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>))
+
+zoomed_bh_plot &lt;-<span class="st"> </span>bh_data_example <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(test_i <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> test_i)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pvals), <span class="dt">color =</span> <span class="st">&quot;darkblue&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> bh_threshold), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sorted index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sorted p-value&quot;</span>,
+       <span class="dt">title =</span> <span class="kw">latex2exp</span>(<span class="st">&#39;BH rejection line $</span><span class="ch">\\</span><span class="st">alpha = 0.05$ (smallest 3000 p-values)&#39;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>))
+  
+<span class="kw">plot_grid</span>(all_bh_plot, zoomed_bh_plot, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The BH procedure is <em>adaptive</em> in the sense that it depends on the specific
+p-values, meaning that two different sets of p-values could generate different
+rejection thresholds for the same target level <span class="math inline">\(\alpha\)</span>. Most importantly,
+under the assumption of <strong>independent tests</strong> (just like Hochberg’s procedure),
+BH controls the FDR at target level <span class="math inline">\(\alpha\)</span> regardless if all tests or just
+proportion are truly null. In fact, BH actually provides conservative FDR control,
+where the FDR under BH for target level <span class="math inline">\(\alpha\)</span> is such that,</p>
+<p><span class="math display">\[
+FDR = \frac{n_0}{n} \cdot \alpha \leq \alpha.
+\]</span></p>
+<p>The next code chunk compares the performance of BH with Holm’s, demonstrating
+the tremendous increase in power:</p>
+<pre class="sourceCode r"><code class="sourceCode r">bh_holm_sims &lt;-<span class="st"> </span><span class="kw">map_dfr</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,
+                        <span class="cf">function</span>(x) {
+                          <span class="kw">compare_multi_testing</span>(<span class="dt">n_null =</span> <span class="dv">800000</span>,
+                                                <span class="dt">n_alt =</span> <span class="dv">200000</span>,
+                                                <span class="dt">alpha =</span> <span class="fl">.05</span>,
+                                                <span class="dt">method1 =</span> <span class="st">&quot;BH&quot;</span>,
+                                                <span class="dt">method2 =</span> <span class="st">&quot;holm&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">                            </span><span class="kw">mutate</span>(<span class="dt">sim_i =</span> x)
+                          })
+
+<span class="co"># Display the comparison of power (S / n_alt) between the two methods:</span>
+bh_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Calculate the power:</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">power =</span> S <span class="op">/</span><span class="st"> </span>(n <span class="op">-</span><span class="st"> </span>n0)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Can just select the method, power, and sim_i columns</span>
+<span class="st">  </span><span class="kw">select</span>(method, power, sim_i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Now generate the violin plot comparing the power distribution for</span>
+<span class="st">  </span><span class="co"># both methods:</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> method, <span class="dt">y =</span> power)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">mult =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Method&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Mean power with +/- two standard errors&quot;</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Comparison of power between BH and Holm&#39;s procedure&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Based on 100 simulations, 80% true nulls for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>But as the saying goes, with great power comes great responsibility, because a
+method for controlling FDR is not appropriate for every situation such as one
+with more costly mistakes. The following comparison between the FDP for Holm’s
+and BH reveals that conservative nature of BH in this case actually controlling
+the FDR at <span class="math inline">\(0.8 \cdot 0.05 = 0.04\)</span>, clearly less than the target level FDR of 0.05.
+Several methods have been developed addressing this conservative nature of BH,
+improving upon its power while including guaranteed FDR control. These will
+be covered in future notes.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Display the comparison of FDP (V / R) between the two methods:</span>
+bh_holm_sims <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Calculate the fdp:</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fdp =</span> V <span class="op">/</span><span class="st"> </span>R) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Can just select the method, FDP, and sim_i columns</span>
+<span class="st">  </span><span class="kw">select</span>(method, fdp, sim_i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># Now generate the violin plot comparing the power distribution for</span>
+<span class="st">  </span><span class="co"># both methods:</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> method, <span class="dt">y =</span> fdp)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">mult =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">.05</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;darkred&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Method&quot;</span>,
+       <span class="dt">y =</span> <span class="st">&quot;Mean FDP with +/- two standard errors&quot;</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Comparison of FDP between BH and Holm&#39;s procedure&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="st">&#39;Based on 100 simulations, 80% true nulls for one million tests at $</span><span class="ch">\\</span><span class="st">alpha = 0.05$&#39;</span>))</code></pre>
+<p><img src="02-Multiple-Testing-Intro_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><strong>Proof</strong>:</p>
+<p>For each <span class="math inline">\(i \in \mathcal{H}_0\)</span> let <span class="math inline">\(V_i = 1_{\{ H_i rejected\}}\)</span>, then</p>
+<p><span class="math display">\[
+\text{FDP} = \sum_{i \in \mathcal{H}_0} \frac{V_i}{\text{max}(R, 1)}.
+\]</span></p>
+<p>Let’s just assume that <span class="math inline">\(\mathbb{E}[V_i / \text{max}(R, 1)] = \alpha / n\)</span>. Using
+this fact the result immediately follows:</p>
+<p><span class="math display">\[
+\text{FDR} = \mathbb{E}[\text{FDP}] = \sum_{i \in \mathcal{H}_0} \mathbb{E} \Big[\frac{V_i}{\text{max}(R, 1)} \Big]
+= \sum_{i \in \mathcal{H}_0} \frac{\alpha}{n} = \frac{n_0}{n} \cdot \alpha.
+\]</span></p>
+<p>Now comes the difficult part, proving the above claim that <span class="math inline">\(\mathbb{E}[V_i / \text{max}(R, 1)] = \alpha / n\)</span>.</p>
+<p><em>Insert martingale proof</em></p>
+</div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Benjamini95">
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 57 (1). [Royal Statistical Society, Wiley]:289–300. <a href="http://www.jstor.org/stable/2346101" class="uri">http://www.jstor.org/stable/2346101</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

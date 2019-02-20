@@ -4,7 +4,7 @@ author:
 - name: "Ron Yurko"
 - name: "Shamindra Shrotriya"
   affiliation: Carnegie Mellon University, Department of Statistics and Data Science
-date: "2019-02-16"
+date: "2019-02-20"
 documentclass: krantz
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site

@@ -1,6 +1,6 @@
 book_filename: "selective-inference-notes"
 chapter_name: "Chapter "
-rmd_files: ["index.Rmd", "01-Introduction.Rmd"]
+rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Multiple-Testing-Intro.Rmd"]
 output_dir: docs
 delete_merged_file: true
 bibliography: [refs.bib]
